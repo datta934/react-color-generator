@@ -4,13 +4,16 @@ import randomColor from "randomcolor";
 const Color = () => {
   const [color, setColor] = useState(null);
   const mouseover = () => {
-    let c =  randomColor(); console.log(c)
+    let c =  randomColor();
     setColor(c)
-    alert(color);
   };
   return (
     <div style={{
-        backgroundColor: color
+        backgroundColor: color,
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
        }} >
       Click to generate new color!
       <button onClick={mouseover}>Generate</button>
