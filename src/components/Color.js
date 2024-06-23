@@ -3,8 +3,11 @@ import randomColor from "randomcolor";
 
 const Color = () => {
   const [color, setColor] = useState(null);
-  const mouseover = () => {
-    let c =  randomColor();
+  const mouseover = ({format}) => {
+    const option = {
+      format: format
+    }
+    let c =  randomColor(option);
     setColor(c)
   };
   return (
@@ -16,7 +19,9 @@ const Color = () => {
         alignItems: 'center',
        }} >
       Click to generate new color!
-      <button onClick={mouseover}>Generate</button>
+      <button onClick={() => mouseover('hex')}>Generate HEX color</button>
+      <button onClick={() => mouseover('rgb')}>Generate RGB</button>
+      <button onClick={() => mouseover('hsl')}>Generate HSL</button>
     </div>
   );
 };
